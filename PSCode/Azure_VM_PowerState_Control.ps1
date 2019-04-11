@@ -131,7 +131,7 @@ foreach ($VM in $VMAllowedAutomate)
 	{
 		$ScheduleType = $AutomateTags.int_auto_weekday
 	}
-	$Schedule = Get-AzureRMAutomationSchedule -Name "Every_Hour" -ResourceGroupName "INT_Domain-rg" -AutomationAccountName "svc-vm-state"
+	$Schedule = Get-AzureRMAutomationSchedule -Name "Every_Hour" -ResourceGroupName "INT_Domain-rg" -AutomationAccountName "VM-Automation"
 	$ScheduleDateTime = $Schedule.NextRun.DateTime.AddHours(-1)
 	
 	Write-Output "VM $($VM.Name) ScheduleType is: $($ScheduleType)"
