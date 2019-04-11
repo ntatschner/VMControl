@@ -7,7 +7,7 @@ param
 )
 # Vars 
 
-$SubscriptionID = 'ffd616d2-3b41-480e-8619-6974241d43ac'
+$SubscriptionID = Get-AutomationVariable -Name 'SubscriptionID'
 
 # Tag JSON Functions
 #region Functions

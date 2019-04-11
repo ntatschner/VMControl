@@ -95,7 +95,7 @@ else
 }
 # Vars 
 
-$SubscriptionID = $webhookbody.SubscriptionID
+$SubscriptionID = Get-AutomationVariable -Name 'SubscriptionID'
 $emailAddress = $webhookbody.email
 
 # Azure Connection
