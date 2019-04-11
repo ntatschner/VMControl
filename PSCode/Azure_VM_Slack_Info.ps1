@@ -69,12 +69,12 @@ Here is the list of the user VMs you're set as the owner of.`n
 $count = 0
 foreach ($b in $VMs)
 {
-	
+	$AutomateTags = $b.Tags["int_automate"] | ConvertFrom-VMTagJSON
 	if ($b.tags['int_vm_type'] -eq 'user')
 	{
 		$count++
 		$vm = Get-AzureRMVM -Name $b.Name -ResourceGroupName $b.ResourceGroupName -Status
-		$ReturnMessage += $($count.ToString() + ") " + $vm.Name + " |  Allowed Automate Set to: " + $($b.Tags['int_allowed_automate']) + " | Current State: " + $(($vm.Statuses | where code -Like "PowerState*").DisplayStatus) + "`n")
+		$ReturnMessage += $($count.ToString() + ") " + $vm.Name + " |  Allowed Automate Set to: " + $($AutomateTags.int_allowed_automate) + " | Current State: " + $(($vm.Statuses | where code -Like "PowerState*").DisplayStatus) + "`n")
 	}
 }
 if ($count -gt 0)
