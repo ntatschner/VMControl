@@ -102,7 +102,7 @@ foreach ($b in $VMs)
 	{
 		$count++
 		$vm = Get-AzureRMVM -Name $b.Name -ResourceGroupName $b.ResourceGroupName -Status
-		$ReturnMessage += $($count.ToString() + ") " + $vm.Name + " |  Allowed Automate Set to: " + $($AutomateTags.int_allowed_automate) + " | Current State: " + $(($vm.Statuses | where code -Like "PowerState*").DisplayStatus) + "`n")
+		$ReturnMessage += $($count.ToString() + ") " + $vm.Name + " |  Allowed Automate Set to: " + $($AutomateTags.int_allow_automate) + " | Current State: " + $(($vm.Statuses | where code -Like "PowerState*").DisplayStatus) + "`n")
 	}
 }
 if ($count -gt 0)
