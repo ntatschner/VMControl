@@ -13,7 +13,7 @@ if ($WebhookData -ne $null)
 	{
 		$webhookbody | Add-Member -MemberType NoteProperty -Name $a -Value ($WebhookData.RequestBody | Select-String -Pattern "($($a)=)([a-zA-Z0-9\.%$@]*)").Matches.Groups[2].Value
 	}
-	$webhookbody | Add-Member -MemberType NoteProperty -Name SubscriptionID -Value ffd616d2-3b41-480e-8619-6974241d43ac
+
 	$webhookbody | Add-Member -MemberType NoteProperty -Name email -Value ""
 	$webhookbody.response_url = $webhookbody.response_url.replace('%2F', '/').Replace('%3A', ':')
 	
