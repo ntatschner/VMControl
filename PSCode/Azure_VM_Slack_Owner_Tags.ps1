@@ -166,8 +166,7 @@ if ($WebhookData -ne $null)
 		}
 		if ([System.String]::isNullorEmpty($userErrors) -eq $false)
 		{
-			$emailBuilder += "Added slack user $($WebhookObj.user_id) as the owner of the following VMs`n$(if ($userAdded.count -gt 1) { $userAdded.Name -Join " ; " }
-				else { $($userAdded.Name) })`n`n"
+			$emailBuilder += "Failed to add slack user $($WebhookObj.user_id) as the owner of the following VMs $a"
 		}
 		Send-MailMessage @EmailSplat -Subject "[Info] Slack Verify My VM Command Output" -Body $emailBuilder
 	}
