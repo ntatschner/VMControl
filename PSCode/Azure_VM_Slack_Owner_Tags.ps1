@@ -143,7 +143,7 @@ if ($WebhookData -ne $null)
 			}
 		}
 		# Email results
-		$emailBuilder = "Hey $($WebhookObj.email),`nThe results of the /verifymyvm and your email responce are below;`n`n"
+		$emailBuilder = "Hey $($WebhookObj.email),`nthe results of the /verifymyvm and your email response are below:`n`n"
 		
 		if ([System.String]::isNullorEmpty($userAdded) -eq $false)
 		{
