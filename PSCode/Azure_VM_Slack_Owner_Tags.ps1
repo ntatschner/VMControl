@@ -115,8 +115,6 @@ if ($WebhookData -ne $null)
 			$AutomateTags = $a.Tags["int_automate"] | ConvertFrom-VMTagJSON
 			if ($a.tags['int_vm_type'] -eq 'user')
 			{
-				if ($AutomateTags.int_allow_automate -eq "true")
-				{
 					if ([System.String]::IsNullOrEmpty($a.Tags["int_slack_userid"]))
 					{
 						$a.Tags["int_slack_userid"] = $WebhookObj.user_id
@@ -142,11 +140,6 @@ if ($WebhookData -ne $null)
 						Write-Output $($a.Name + " is already owned by user $($WebhookObj.user_id)")
 						$userAlreadyOwned += $a
 					}
-				}
-				else
-				{
-					Write-Output $($a.Name + " is set to not allow automation")
-				}
 			}
 		}
 		# Email results
